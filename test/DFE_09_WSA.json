@@ -1,0 +1,1538 @@
+{
+  "context": {
+    "UnitOfMeasureScale": 0.001,
+    "Zup": false,
+    "RepoPath": ""
+  },
+  "scene": [
+    "building",
+    "B1",
+    "part_01",
+    "part_02",
+    "part_03",
+    "part_04",
+    "part_05",
+    "part_06",
+    "part_07",
+    "part_08",
+    "part_09",
+    "part_10",
+    "Grid",
+    "Box",
+    "WSA",
+    "WSA.base",
+    "WSA.link1",
+    "WSA.link2",
+    "WSA.link3",
+    "WSA.link4",
+    "WSA.link5",
+    "WSA.link6",
+    "WSA.EndEffector",
+    "WSA.Gripper1",
+    "WSA.Gripper2",
+    "WSA.Workholding",
+    "WSA.Robot",
+    "Sensor1",
+    "Receiver1",
+    "AGV"
+  ],
+  "assets": [
+    {
+      "id": "building",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcBuilding"
+    },
+    {
+      "id": "B1",
+      "type": "https://w3id.org/ontoeng/factory#Conveyor",
+      "representations": [
+        {
+          "file": "ConveyorNew.glb",
+          "unit": 1
+        }
+      ],
+      "position": [0, 0, 0],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 0,
+        "restitution": 0.3,
+        "friction": 0.0,
+        "MotionType": "ANIMATED"
+      },
+      "statechart": {
+        "id": "B1_SC",
+        "initial": "forward",
+        "states": {
+            "idle": {
+              "on": {
+                "B1startF": "forward",
+                "B1startB": "backward"
+              },
+              "entry": {
+                "action": "surfaceVelocity",
+                "target": "B1",
+                "velocity": [0, 0, 0]
+            }
+          },
+          "forward": {
+            "on": {
+              "B1stop": "idle"
+            },
+            "entry": {
+              "action": "surfaceVelocity",
+              "target": "B1",
+              "velocity": [0, 0, 80]
+            }
+          },
+          "backward": {
+            "on": {
+              "B1stop": "idle"
+            },
+            "entry": {
+              "action": "surfaceVelocity",
+              "target": "B1",
+              "velocity": [0, 0, -80]
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "Sensor1",
+      "type": "https://w3id.org/ontoeng/factory#SensorBarrier",
+      "position": [110, 230, 930],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "B1",
+      "container": "building",
+      "representations": [
+        {
+          "file": "Sensor.glb",
+          "unit": 1
+        }
+      ],
+      "statechart": {
+        "id": "Sensor1_SC",
+        "context": {},
+        "states": {
+          "Detecting": {
+            "id": "Detecting",
+            "meta": {
+              "type": "https://w3id.org/ontoeng/factory#SensorDetecting"
+            },
+            "on": {
+              "OBJECT_REMOVED": [
+                {
+                  "target": "#Idle"
+                }
+              ]
+            },
+            "entry": [
+                { "action": "sendEvent", "to": "B1_SC",  "target": "B1stop" }
+              ],
+            "exit":  { 
+              "action": "sendEvent", 
+              "to": "B1_SC", 
+              "target": "B1startF" },
+            "type": "atomic"
+          },
+          "Idle": {
+            "id": "Idle",
+            "meta": {
+              "type": "https://w3id.org/ontoeng/factory#SensorIdle"
+            },
+            "on": {
+              "OBJECT_DETECTED": [
+                {
+                  "target": "#Detecting"
+                }
+              ]
+            }
+          }
+        },
+        "initial": "Idle"
+      }
+    },
+    {
+      "id": "Receiver1",
+      "type": "https://w3id.org/ontoeng/factory#SensorBarrierReceiver",
+      "position": [-220, 0, 0],
+      "rotation": [0, 3.1416, 0],
+      "placementRelTo": "Sensor1",
+      "parentObject": "Sensor1",
+      "container": "building",
+      "representations": [
+        {
+          "file": "Sensor2.glb",
+          "unit": 1
+        }
+      ]
+    },
+    {
+      "id": "WSA",
+      "type": "https://w3id.org/ontoeng/factory#MachineTool",
+      "representations": [
+        {
+          "file": "UR.glb",
+          "unit": 1
+        }
+      ],
+      "position": [-300, 0, 951],
+      "rotation": [0, 3.1415926536, 0],
+      "placementRelTo": "building",
+      "statechart": {
+          "id": "WSA_SC",
+          "initial": "WSArest_1",
+          "states": {
+            "WSArest_1": {
+              "on": { "WSAgoPick": "WSAabovePick_1" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.9599353, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.6457753] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.85005] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.4486253, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 1.5109315] },
+                { "action": "sendEvent", "to": "B1_SC", "target": "URready", "delay": 1000 }
+              ]
+            },
+            "WSAabovePick_1": {
+              "on": { "WSAnext": "WSApick_1", "WSAback": "WSArest_1" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.261799, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -40, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 40, 40] }
+              ]
+            },
+            "WSApick_1": {
+              "on": { "WSAgoPlace": "WSAliftPick_1", "WSAback": "WSAabovePick_1" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.261799, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0715585] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.6214] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [-1, -10, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [-1, 13, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPick_1": {
+              "on": { "WSAnext": "WSAoverAGV_1", "WSAback": "WSApick_1" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.261799, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] }
+              ]
+            },
+            "WSAoverAGV_1": {
+              "on": { "WSAnext": "WSAabovePlace_1", "WSAback": "WSAliftPick_1" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -1.5056527, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, 0.7257826] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 0.8147058] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.030308] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 0.0651436] }
+              ]
+            },
+            "WSAabovePlace_1": {
+              "on": { "WSAnext": "WSAplace_1", "WSAback": "WSAoverAGV_1" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.2795842, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 1.0038871] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 0.2918419] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, 0.2750673] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.2912121] }
+              ]
+            },
+            "WSAplace_1": {
+              "on": { "WSAgoRest": "WSAliftPlace_1", "WSAback": "WSAabovePlace_1" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.2795842, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.9496324] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 0.6968225] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.0756586] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.2912121] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPlace_1": {
+              "on": { "WSAnext": "WSArest_2", "WSAback": "WSAplace_1" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.2795842, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 1.0038871] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 0.2918419] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, 0.2750673] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.2912121] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40] }
+              ]
+            },
+            "WSArest_2": {
+              "on": { "WSAgoPick": "WSAabovePick_2", "WSAback": "WSAliftPlace_1" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.9599353, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.6457753] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.85005] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.4486253, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 1.5109315] },
+                { "action": "sendEvent", "to": "B1_SC", "target": "URready", "delay": 1000 }
+              ]
+            },
+            "WSAabovePick_2": {
+              "on": { "WSAnext": "WSApick_2", "WSAback": "WSArest_2" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -40, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 40, 40] }
+              ]
+            },
+            "WSApick_2": {
+              "on": { "WSAgoPlace": "WSAliftPick_2", "WSAback": "WSAabovePick_2" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0715585] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.6214] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [-1, -10, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [-1, 13, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPick_2": {
+              "on": { "WSAnext": "WSAoverAGV_2", "WSAback": "WSApick_2" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] }
+              ]
+            },
+            "WSAoverAGV_2": {
+              "on": { "WSAnext": "WSAabovePlace_2", "WSAback": "WSAliftPick_2" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -1.5056527, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, 0.7257826] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 0.8147058] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.030308] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 0.0651436] }
+              ]
+            },
+            "WSAabovePlace_2": {
+              "on": { "WSAnext": "WSAplace_2", "WSAback": "WSAoverAGV_2" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.4142973, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.7624205] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 0.7496542] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, 0.0587216] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.156499] }
+              ]
+            },
+            "WSAplace_2": {
+              "on": { "WSAgoRest": "WSAliftPlace_2", "WSAback": "WSAabovePlace_2" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.4142973, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.7891346] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 0.9990584] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.2173967] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.156499] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPlace_2": {
+              "on": { "WSAnext": "WSArest_3", "WSAback": "WSAplace_2" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.4142973, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.7624205] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 0.7496542] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, 0.0587216] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.156499] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40] }
+              ]
+            },
+            "WSArest_3": {
+              "on": { "WSAgoPick": "WSAabovePick_3", "WSAback": "WSAliftPlace_2" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.9599353, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.6457753] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.85005] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.4486253, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 1.5109315] },
+                { "action": "sendEvent", "to": "B1_SC", "target": "URready", "delay": 1000 }
+              ]
+            },
+            "WSAabovePick_3": {
+              "on": { "WSAnext": "WSApick_3", "WSAback": "WSArest_3" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -40, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 40, 40] }
+              ]
+            },
+            "WSApick_3": {
+              "on": { "WSAgoPlace": "WSAliftPick_3", "WSAback": "WSAabovePick_3" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0715585] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.6214] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [-1, -10, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [-1, 13, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPick_3": {
+              "on": { "WSAnext": "WSAoverAGV_3", "WSAback": "WSApick_3" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] }
+              ]
+            },
+            "WSAoverAGV_3": {
+              "on": { "WSAnext": "WSAabovePlace_3", "WSAback": "WSAliftPick_3" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -1.5056527, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, 0.7257826] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 0.8147058] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.030308] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 0.0651436] }
+              ]
+            },
+            "WSAabovePlace_3": {
+              "on": { "WSAnext": "WSAplace_3", "WSAback": "WSAoverAGV_3" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.5555092, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.6468947] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 0.9507723] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.0268707] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.0152871] }
+              ]
+            },
+            "WSAplace_3": {
+              "on": { "WSAgoRest": "WSAliftPlace_3", "WSAback": "WSAabovePlace_3" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.5555092, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.6941305] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.169921] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.2932551] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.0152871] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPlace_3": {
+              "on": { "WSAnext": "WSArest_4", "WSAback": "WSAplace_3" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.5555092, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.6468947] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 0.9507723] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.0268707] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.0152871] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40] }
+              ]
+            },
+            "WSArest_4": {
+              "on": { "WSAgoPick": "WSAabovePick_4", "WSAback": "WSAliftPlace_3" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.9599353, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.6457753] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.85005] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.4486253, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 1.5109315] },
+                { "action": "sendEvent", "to": "B1_SC", "target": "URready", "delay": 1000 }
+              ]
+            },
+            "WSAabovePick_4": {
+              "on": { "WSAnext": "WSApick_4", "WSAback": "WSArest_4" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -40, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 40, 40] }
+              ]
+            },
+            "WSApick_4": {
+              "on": { "WSAgoPlace": "WSAliftPick_4", "WSAback": "WSAabovePick_4" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0715585] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.6214] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [-1, -10, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [-1, 13, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPick_4": {
+              "on": { "WSAnext": "WSAoverAGV_4", "WSAback": "WSApick_4" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] }
+              ]
+            },
+            "WSAoverAGV_4": {
+              "on": { "WSAnext": "WSAabovePlace_4", "WSAback": "WSAliftPick_4" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -1.5056527, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, 0.7257826] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 0.8147058] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.030308] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 0.0651436] }
+              ]
+            },
+            "WSAabovePlace_4": {
+              "on": { "WSAnext": "WSAplace_4", "WSAback": "WSAoverAGV_4" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.7067861, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.5849423] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.0537076] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.0678535] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, -0.1359898] }
+              ]
+            },
+            "WSAplace_4": {
+              "on": { "WSAgoRest": "WSAliftPlace_4", "WSAback": "WSAabovePlace_4" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.7067861, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.6411078] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.2624101] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.3327215] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, -0.1359898] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPlace_4": {
+              "on": { "WSAnext": "WSArest_5", "WSAback": "WSAplace_4" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.7067861, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.5849423] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.0537076] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.0678535] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, -0.1359898] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40] }
+              ]
+            },
+            "WSArest_5": {
+              "on": { "WSAgoPick": "WSAabovePick_5", "WSAback": "WSAliftPlace_4" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.9599353, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.6457753] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.85005] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.4486253, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 1.5109315] },
+                { "action": "sendEvent", "to": "B1_SC", "target": "URready", "delay": 1000 }
+              ]
+            },
+            "WSAabovePick_5": {
+              "on": { "WSAnext": "WSApick_5", "WSAback": "WSArest_5" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -40, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 40, 40] }
+              ]
+            },
+            "WSApick_5": {
+              "on": { "WSAgoPlace": "WSAliftPick_5", "WSAback": "WSAabovePick_5" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0715585] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.6214] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [-1, -10, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [-1, 13, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPick_5": {
+              "on": { "WSAnext": "WSAoverAGV_5", "WSAback": "WSApick_5" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] }
+              ]
+            },
+            "WSAoverAGV_5": {
+              "on": { "WSAnext": "WSAabovePlace_5", "WSAback": "WSAliftPick_5" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -1.5056527, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, 0.7257826] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 0.8147058] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.030308] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 0.0651436] }
+              ]
+            },
+            "WSAabovePlace_5": {
+              "on": { "WSAnext": "WSAplace_5", "WSAback": "WSAoverAGV_5" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.2308889, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.5666147] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.0834812] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.0792995] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.3399074] }
+              ]
+            },
+            "WSAplace_5": {
+              "on": { "WSAgoRest": "WSAliftPlace_5", "WSAback": "WSAabovePlace_5" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.2308889, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.6252286] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.2896833] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.3441155] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.3399074] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPlace_5": {
+              "on": { "WSAnext": "WSArest_6", "WSAback": "WSAplace_5" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.2308889, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.5666147] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.0834812] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.0792995] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.3399074] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40] }
+              ]
+            },
+            "WSArest_6": {
+              "on": { "WSAgoPick": "WSAabovePick_6", "WSAback": "WSAliftPlace_5" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.9599353, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.6457753] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.85005] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.4486253, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 1.5109315] },
+                { "action": "sendEvent", "to": "B1_SC", "target": "URready", "delay": 1000 }
+              ]
+            },
+            "WSAabovePick_6": {
+              "on": { "WSAnext": "WSApick_6", "WSAback": "WSArest_6" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -40, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 40, 40] }
+              ]
+            },
+            "WSApick_6": {
+              "on": { "WSAgoPlace": "WSAliftPick_6", "WSAback": "WSAabovePick_6" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0715585] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.6214] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [-1, -10, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [-1, 13, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPick_6": {
+              "on": { "WSAnext": "WSAoverAGV_6", "WSAback": "WSApick_6" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] }
+              ]
+            },
+            "WSAoverAGV_6": {
+              "on": { "WSAnext": "WSAabovePlace_6", "WSAback": "WSAliftPick_6" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -1.5056527, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, 0.7257826] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 0.8147058] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.030308] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 0.0651436] }
+              ]
+            },
+            "WSAabovePlace_6": {
+              "on": { "WSAnext": "WSAplace_6", "WSAback": "WSAoverAGV_6" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.3843545, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.4266822] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.3001707] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.1560565] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.1864418] }
+              ]
+            },
+            "WSAplace_6": {
+              "on": { "WSAgoRest": "WSAliftPlace_6", "WSAback": "WSAabovePlace_6" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.3843545, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.5019452] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.4942173] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.4253661] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.1864418] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPlace_6": {
+              "on": { "WSAnext": "WSArest_7", "WSAback": "WSAplace_6" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.3843545, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.4266822] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.3001707] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.1560565] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.1864418] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40] }
+              ]
+            },
+            "WSArest_7": {
+              "on": { "WSAgoPick": "WSAabovePick_7", "WSAback": "WSAliftPlace_6" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.9599353, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.6457753] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.85005] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.4486253, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 1.5109315] },
+                { "action": "sendEvent", "to": "B1_SC", "target": "URready", "delay": 1000 }
+              ]
+            },
+            "WSAabovePick_7": {
+              "on": { "WSAnext": "WSApick_7", "WSAback": "WSArest_7" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -40, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 40, 40] }
+              ]
+            },
+            "WSApick_7": {
+              "on": { "WSAgoPlace": "WSAliftPick_7", "WSAback": "WSAabovePick_7" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0715585] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.6214] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [-1, -10, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [-1, 13, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPick_7": {
+              "on": { "WSAnext": "WSAoverAGV_7", "WSAback": "WSApick_7" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] }
+              ]
+            },
+            "WSAoverAGV_7": {
+              "on": { "WSAnext": "WSAabovePlace_7", "WSAback": "WSAliftPick_7" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -1.5056527, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, 0.7257826] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 0.8147058] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.030308] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 0.0651436] }
+              ]
+            },
+            "WSAabovePlace_7": {
+              "on": { "WSAnext": "WSAplace_7", "WSAback": "WSAoverAGV_7" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.5538244, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.3241254] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.4464146] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.1997437] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.0169719] }
+              ]
+            },
+            "WSAplace_7": {
+              "on": { "WSAgoRest": "WSAliftPlace_7", "WSAback": "WSAabovePlace_7" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.5538244, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.4099968] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.637615] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.4768154] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.0169719] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPlace_7": {
+              "on": { "WSAnext": "WSArest_8", "WSAback": "WSAplace_7" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.5538244, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.3241254] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.4464146] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.1997437] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.0169719] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40] }
+              ]
+            },
+            "WSArest_8": {
+              "on": { "WSAgoPick": "WSAabovePick_8", "WSAback": "WSAliftPlace_7" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.9599353, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.6457753] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.85005] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.4486253, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 1.5109315] },
+                { "action": "sendEvent", "to": "B1_SC", "target": "URready", "delay": 1000 }
+              ]
+            },
+            "WSAabovePick_8": {
+              "on": { "WSAnext": "WSApick_8", "WSAback": "WSArest_8" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -40, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 40, 40] }
+              ]
+            },
+            "WSApick_8": {
+              "on": { "WSAgoPlace": "WSAliftPick_8", "WSAback": "WSAabovePick_8" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0715585] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.6214] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [-1, -10, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [-1, 13, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPick_8": {
+              "on": { "WSAnext": "WSAoverAGV_8", "WSAback": "WSApick_8" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] }
+              ]
+            },
+            "WSAoverAGV_8": {
+              "on": { "WSAnext": "WSAabovePlace_8", "WSAback": "WSAliftPick_8" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -1.5056527, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, 0.7257826] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 0.8147058] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.030308] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 0.0651436] }
+              ]
+            },
+            "WSAabovePlace_8": {
+              "on": { "WSAnext": "WSAplace_8", "WSAback": "WSAoverAGV_8" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.7343109, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.2674266] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.5224382] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.2190684] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, -0.1635146] }
+              ]
+            },
+            "WSAplace_8": {
+              "on": { "WSAgoRest": "WSAliftPlace_8", "WSAback": "WSAabovePlace_8" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.7343109, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.3587425] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.7137738] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.5017201] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, -0.1635146] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPlace_8": {
+              "on": { "WSAnext": "WSArest_9", "WSAback": "WSAplace_8" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.7343109, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.2674266] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.5224382] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.2190684] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, -0.1635146] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40] }
+              ]
+            },
+            "WSArest_9": {
+              "on": { "WSAgoPick": "WSAabovePick_9", "WSAback": "WSAliftPlace_8" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.9599353, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.6457753] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.85005] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.4486253, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 1.5109315] },
+                { "action": "sendEvent", "to": "B1_SC", "target": "URready", "delay": 1000 }
+              ]
+            },
+            "WSAabovePick_9": {
+              "on": { "WSAnext": "WSApick_9", "WSAback": "WSArest_9" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -40, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 40, 40] }
+              ]
+            },
+            "WSApick_9": {
+              "on": { "WSAgoPlace": "WSAliftPick_9", "WSAback": "WSAabovePick_9" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0715585] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.6214] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [-1, -10, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [-1, 13, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPick_9": {
+              "on": { "WSAnext": "WSAoverAGV_9", "WSAback": "WSApick_9" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] }
+              ]
+            },
+            "WSAoverAGV_9": {
+              "on": { "WSAnext": "WSAabovePlace_9", "WSAback": "WSAliftPick_9" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -1.5056527, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, 0.7257826] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 0.8147058] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.030308] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 0.0651436] }
+              ]
+            },
+            "WSAabovePlace_9": {
+              "on": { "WSAnext": "WSAplace_9", "WSAback": "WSAoverAGV_9" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.3320443, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.1497015] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.6688079] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.2477131] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.238752] }
+              ]
+            },
+            "WSAplace_9": {
+              "on": { "WSAgoRest": "WSAliftPlace_9", "WSAback": "WSAabovePlace_9" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.3320443, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.2514162] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.8636492] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.5442691] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.238752] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPlace_9": {
+              "on": { "WSAnext": "WSArest_10", "WSAback": "WSAplace_9" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.3320443, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.1497015] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.6688079] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.2477131] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.238752] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40] }
+              ]
+            },
+            "WSArest_10": {
+              "on": { "WSAgoPick": "WSAabovePick_10", "WSAback": "WSAliftPlace_9" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.9599353, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.6457753] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.85005] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.4486253, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 1.5109315] },
+                { "action": "sendEvent", "to": "B1_SC", "target": "URready", "delay": 1000 }
+              ]
+            },
+            "WSAabovePick_10": {
+              "on": { "WSAnext": "WSApick_10", "WSAback": "WSArest_10" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -40, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 40, 40] }
+              ]
+            },
+            "WSApick_10": {
+              "on": { "WSAgoPlace": "WSAliftPick_10", "WSAback": "WSAabovePick_10" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0715585] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.6214] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [-1, -10, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [-1, 13, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPick_10": {
+              "on": { "WSAnext": "WSAoverAGV_10", "WSAback": "WSApick_10" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.2443453, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.0011201] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.1673575] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.3836042] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 1.3263995] }
+              ]
+            },
+            "WSAoverAGV_10": {
+              "on": { "WSAnext": "WSAabovePlace_10", "WSAback": "WSAliftPick_10" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -1.5056527, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, 0.7257826] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 0.8147058] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.030308] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.5707953, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 0.0651436] }
+              ]
+            },
+            "WSAabovePlace_10": {
+              "on": { "WSAnext": "WSAplace_10", "WSAback": "WSAoverAGV_10" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.5429553, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.0122191] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.8194209] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.2608437] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.027841] }
+              ]
+            },
+            "WSAplace_10": {
+              "on": { "WSAgoRest": "WSAliftPlace_10", "WSAback": "WSAabovePlace_10" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.5429553, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.1241761] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 2.0229472] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.576327] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.027841] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40], "delay": 1500 },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40], "delay": 1500 }
+              ]
+            },
+            "WSAliftPlace_10": {
+              "on": { "WSAnext": "WSArest_end", "WSAback": "WSAplace_10" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0.0, -1.5429553, 0.0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0.0, 0.0, 0.0122191] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0.0, 0.0, 1.8194209] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0.0, 0.0, -0.2608437] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0.0, -1.5707953, 0.0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0.0, 0.0, 0.027841] },
+                { "action": "moveTo", "target": "WSA.Gripper1", "position": [0, -38, 40] },
+                { "action": "moveTo", "target": "WSA.Gripper2", "position": [0, 38, 40] }
+              ]
+            },
+            "WSArest_end": {
+              "on": { "WSAback": "WSAliftPlace_10" },
+              "entry": [
+                { "action": "moveTo", "target": "WSA.link1", "position": [0, 86.05, 0], "rotation": [0, -0.9599353, 0] },
+                { "action": "moveTo", "target": "WSA.link2", "position": [0, 65.85, 54], "rotation": [0, 0, -0.6457753] },
+                { "action": "moveTo", "target": "WSA.link3", "position": [0, 243.65, 23.6], "rotation": [0, 0, 1.85005] },
+                { "action": "moveTo", "target": "WSA.link4", "position": [0, 213, -8], "rotation": [0, 0, 0.0] },
+                { "action": "moveTo", "target": "WSA.link5", "position": [0, 42.6, 40.8], "rotation": [0, -1.4486253, 0] },
+                { "action": "moveTo", "target": "WSA.link6", "position": [0, 40.8, 42.6], "rotation": [0, 0, 1.5109315] }
+              ]
+            }
+          }
+        }
+    },
+    {
+      "id": "WSA.base",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URbase",
+          "unit": 1
+        }
+      ],
+      "position": [0, 0, 0],
+      "placementRelTo": "WSA.Robot",
+      "parentObject": "WSA.Robot"
+    },
+    {
+      "id": "WSA.link1",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint1",
+          "unit": 1
+        }
+      ],
+      "position": [0, 86.05, 0],
+      "rotation": [0, -0.2443453, 0],
+      "placementRelTo": "WSA.base",
+      "parentObject": "WSA.base"
+    },
+    {
+      "id": "WSA.link2",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint2",
+          "unit": 1
+        }
+      ],
+      "position": [0, 65.85, 54],
+      "rotation": [0, 0, -0.0715585],
+      "placementRelTo": "WSA.link1",
+      "parentObject": "WSA.link1"
+    },
+    {
+      "id": "WSA.link3",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint3",
+          "unit": 1
+        }
+      ],
+      "position": [0, 243.65, 23.6],
+      "rotation": [0, 0, 1.6214],
+      "placementRelTo": "WSA.link2",
+      "parentObject": "WSA.link2"
+    },
+    {
+      "id": "WSA.link4",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint4",
+          "unit": 1
+        }
+      ],
+      "position": [0, 213, -8],
+      "rotation": [0, 0, 0.0],
+      "placementRelTo": "WSA.link3",
+      "parentObject": "WSA.link3"
+    },
+    {
+      "id": "WSA.link5",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint5",
+          "unit": 1
+        }
+      ],
+      "position": [0, 42.6, 40.8],
+      "rotation": [0, -1.5707953, 0],
+      "placementRelTo": "WSA.link4",
+      "parentObject": "WSA.link4"
+    },
+    {
+      "id": "WSA.link6",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint6",
+          "unit": 1
+        }
+      ],
+      "position": [0, 40.8, 42.6],
+      "rotation": [0, 0, 1.242674],
+      "placementRelTo": "WSA.link5",
+      "parentObject": "WSA.link5"
+    },
+    {
+      "id": "WSA.EndEffector",
+      "type": "https://w3id.org/ontoeng/factory#JawGripper",
+      "representations": [
+        {
+          "file": "UR.glb#UREndEffector",
+          "unit": 1
+        }
+      ],
+      "position": [0, 0, 38],
+      "placementRelTo": "WSA.link6",
+      "parentObject": "WSA.link6"
+    },
+    {
+      "id": "WSA.Gripper1",
+      "type": "https://w3id.org/ontoeng/factory#JawFinger",
+      "representations": [
+        {
+          "file": "UR.glb#URgripper1",
+          "unit": 1
+        }
+      ],
+      "properties": { "mass": 0, 
+      "restitution": 0.0, 
+      "friction": 0.0, 
+      "MotionType": "ANIMATED",
+      "isTrigger": true 
+      },
+      "position": [0, -40, 40],
+      "placementRelTo": "WSA.EndEffector",
+      "parentObject": "WSA.EndEffector"
+    },
+    {
+      "id": "WSA.Gripper2",
+      "type": "https://w3id.org/ontoeng/factory#JawFinger",
+      "representations": [
+        {
+          "file": "UR.glb#URgripper2",
+          "unit": 1
+        }
+      ],
+      "properties": { "mass": 0, 
+      "restitution": 0.0, 
+      "friction": 0.0, 
+      "MotionType": "ANIMATED",
+      "isTrigger": true },
+      "position": [0, 40, 40],
+      "placementRelTo": "WSA.EndEffector",
+      "parentObject": "WSA.EndEffector"
+    },
+    {
+      "id": "WSA.Workholding",
+      "type": "https://w3id.org/ontoeng/factory#WorkholdingPosition",
+      "position": [-5.85, 2, 98],
+      "rotation": [0.0414936, -3.0725331, 1.5736656],
+      "placementRelTo": "WSA.EndEffector",
+      "parentObject": "WSA.EndEffector"
+    },
+    {
+      "id": "WSA.Robot",
+      "type": "https://w3id.org/ontoeng/factory#Robot",
+      "representations": [
+        {
+          "file": "UR.glb#URPPs_Robot",
+          "unit": 1
+        }
+      ],
+      "position": [0, 0, 0],
+      "placementRelTo": "WSA",
+      "parentObject": "WSA"
+    },
+    {
+      "id":  "AGV",
+      "type": "https://w3id.org/ontoeng/factory#Robot",
+      "representations": [
+        {
+          "file": "AGV.glb",
+          "unit": 1
+        }
+      ],
+      "position": [-150, 0, 1238],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "building",
+      "properties": {
+        "mass":  1,
+          "restitution":  0.3,
+         "friction":  0.0,
+         "MotionType":  "ANIMATED"
+      }
+    },
+    {
+      "id": "part_01",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [0, 230, -900],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.95
+      }
+    },
+    {
+      "id": "part_02",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [0, 230, -700],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.95
+      }
+    },
+    {
+      "id": "part_03",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [0, 230, -500],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.95
+      }
+    },
+    {
+      "id": "part_04",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [0, 230, -300],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.96
+      }
+    },
+    {
+      "id": "part_05",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [0, 230, -100],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.97
+      }
+    },
+    {
+      "id": "part_06",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [0, 230, 100],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.98
+      }
+    },
+    {
+      "id": "part_07",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [0, 230, 300],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.99
+      }
+    },
+    {
+      "id": "part_08",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [0, 230, 500],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.100
+      }
+    },
+    {
+      "id": "part_09",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [0, 230, 700],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.101
+      }
+    },
+    {
+      "id": "part_10",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [0, 230, 900],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.95
+      }
+    }
+  ]
+}

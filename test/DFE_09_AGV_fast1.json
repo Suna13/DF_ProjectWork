@@ -1,0 +1,1002 @@
+{
+  "context": {
+    "UnitOfMeasureScale": 0.001,
+    "Zup": false,
+    "RepoPath": ""
+  },
+  "scene": [
+    "building",
+    "B1",
+    "part_01",
+    "part_02",
+    "part_03",
+    "part_04",
+    "part_05",
+    "part_06",
+    "part_07",
+    "part_08",
+    "part_09",
+    "part_10",
+    "Grid",
+    "Box",
+    "WSA",
+    "WSA.base",
+    "WSA.link1",
+    "WSA.link2",
+    "WSA.link3",
+    "WSA.link4",
+    "WSA.link5",
+    "WSA.link6",
+    "WSA.EndEffector",
+    "WSA.Gripper1",
+    "WSA.Gripper2",
+    "WSA.Workholding",
+    "WSA.Robot",
+    "WSB",
+    "WSB.base",
+    "WSB.link1",
+    "WSB.link2",
+    "WSB.link3",
+    "WSB.link4",
+    "WSB.link5",
+    "WSB.link6",
+    "WSB.EndEffector",
+    "WSB.Gripper1",
+    "WSB.Gripper2",
+    "WSB.Workholding",
+    "WSB.Robot",
+    "Sensor1",
+    "Receiver1",
+    "AGV",
+    "AGV.surface"
+  ],
+  "assets": [
+    {
+      "id": "building",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcBuilding"
+    },
+    {
+      "id": "B1",
+      "type": "https://w3id.org/ontoeng/factory#Conveyor",
+      "representations": [
+        {
+          "file": "ConveyorNew.glb",
+          "unit": 1
+        }
+      ],
+      "position": [0, 0, 0],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 0,
+        "restitution": 0.3,
+        "friction": 0.0,
+        "MotionType": "ANIMATED"
+      },
+      "statechart": {
+        "id": "B1_SC",
+        "initial": "idle",
+        "states": {
+            "idle": {
+              "on": {
+                "B1startF": "forward",
+                "B1startB": "backward"
+              },
+              "entry": {
+                "action": "surfaceVelocity",
+                "target": "B1",
+                "velocity": [0, 0, 0]
+            }
+          },
+          "forward": {
+            "on": {
+              "B1stop": "waiting"
+            },
+            "entry": {
+              "action": "surfaceVelocity",
+              "target": "B1",
+              "velocity": [0, 0, 80]
+            }
+          },
+          "backward": {
+            "on": {
+              "B1stop": "idle"
+            },
+            "entry": {
+              "action": "surfaceVelocity",
+              "target": "B1",
+              "velocity": [0, 0, -80]
+            }
+          },
+          "waiting": {
+            "on": { "B1startF": "forward", "URready": "waiting" },
+            "entry": [
+              { "action": "surfaceVelocity", "target": "B1", "velocity": [0, 0, 0] },
+              { "action": "sendEvent", "to": "WSA_SC", "target": "WSAgoPick" }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "Sensor1",
+      "type": "https://w3id.org/ontoeng/factory#SensorBarrier",
+      "position": [110, 230, 930],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "B1",
+      "container": "building",
+      "representations": [
+        {
+          "file": "Sensor.glb",
+          "unit": 1
+        }
+      ],
+      "statechart": {
+        "id": "Sensor1_SC",
+        "context": {},
+        "states": {
+          "Detecting": {
+            "id": "Detecting",
+            "meta": {
+              "type": "https://w3id.org/ontoeng/factory#SensorDetecting"
+            },
+            "on": {
+              "OBJECT_REMOVED": [
+                {
+                  "target": "#Idle"
+                }
+              ]
+            },
+            "entry": [
+                { "action": "sendEvent", "to": "B1_SC",  "target": "B1stop" }
+              ],
+            "exit":  { 
+              "action": "sendEvent", "to": "B1_SC", "target": "B1startF" },
+            "type": "atomic"
+          },
+          "Idle": {
+            "id": "Idle",
+            "meta": {
+              "type": "https://w3id.org/ontoeng/factory#SensorIdle"
+            },
+            "on": {
+              "OBJECT_DETECTED": [
+                {
+                  "target": "#Detecting"
+                }
+              ]
+            }
+          }
+        },
+        "initial": "Idle"
+      }
+    },
+    {
+      "id": "Receiver1",
+      "type": "https://w3id.org/ontoeng/factory#SensorBarrierReceiver",
+      "position": [-220, 0, 0],
+      "rotation": [0, 3.1416, 0],
+      "placementRelTo": "Sensor1",
+      "parentObject": "Sensor1",
+      "container": "building",
+      "representations": [
+        {
+          "file": "Sensor2.glb",
+          "unit": 1
+        }
+      ]
+    },
+    {
+      "id": "WSA",
+      "type": "https://w3id.org/ontoeng/factory#MachineTool",
+      "representations": [
+        {
+          "file": "UR.glb",
+          "unit": 1
+        }
+      ],
+      "position": [-300, 0, 951],
+      "rotation": [0, 3.1415926536, 0],
+      "placementRelTo": "building"
+    },
+    {
+      "id": "WSA.base",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URbase",
+          "unit": 1
+        }
+      ],
+      "position": [0, 0, 0],
+      "placementRelTo": "WSA.Robot",
+      "parentObject": "WSA.Robot"
+    },
+    {
+      "id": "WSA.link1",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint1",
+          "unit": 1
+        }
+      ],
+      "position": [0, 86.05, 0],
+      "rotation": [0, -0.9599353, 0],
+      "placementRelTo": "WSA.base",
+      "parentObject": "WSA.base"
+    },
+    {
+      "id": "WSA.link2",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint2",
+          "unit": 1
+        }
+      ],
+      "position": [0, 65.85, 54],
+      "rotation": [0, 0, -0.6457753],
+      "placementRelTo": "WSA.link1",
+      "parentObject": "WSA.link1"
+    },
+    {
+      "id": "WSA.link3",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint3",
+          "unit": 1
+        }
+      ],
+      "position": [0, 243.65, 23.6],
+      "rotation": [0, 0, 1.85005],
+      "placementRelTo": "WSA.link2",
+      "parentObject": "WSA.link2"
+    },
+    {
+      "id": "WSA.link4",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint4",
+          "unit": 1
+        }
+      ],
+      "position": [0, 213, -8],
+      "rotation": [0, 0, 0.0],
+      "placementRelTo": "WSA.link3",
+      "parentObject": "WSA.link3"
+    },
+    {
+      "id": "WSA.link5",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint5",
+          "unit": 1
+        }
+      ],
+      "position": [0, 42.6, 40.8],
+      "rotation": [0, -1.4486253, 0],
+      "placementRelTo": "WSA.link4",
+      "parentObject": "WSA.link4"
+    },
+    {
+      "id": "WSA.link6",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint6",
+          "unit": 1
+        }
+      ],
+      "position": [0, 40.8, 42.6],
+      "rotation": [0, 0, 1.5109315],
+      "placementRelTo": "WSA.link5",
+      "parentObject": "WSA.link5"
+    },
+    {
+      "id": "WSA.EndEffector",
+      "type": "https://w3id.org/ontoeng/factory#JawGripper",
+      "representations": [
+        {
+          "file": "UR.glb#UREndEffector",
+          "unit": 1
+        }
+      ],
+      "position": [0, 0, 38],
+      "placementRelTo": "WSA.link6",
+      "parentObject": "WSA.link6"
+    },
+    {
+      "id": "WSA.Gripper1",
+      "type": "https://w3id.org/ontoeng/factory#JawFinger",
+      "representations": [
+        {
+          "file": "UR.glb#URgripper1",
+          "unit": 1
+        }
+      ],
+      "properties": { "mass": 0, 
+      "restitution": 0.0, 
+      "friction": 0.0, 
+      "MotionType": "ANIMATED",
+      "isTrigger": true
+      },
+      "position": [0, -40, 40],
+      "placementRelTo": "WSA.EndEffector",
+      "parentObject": "WSA.EndEffector"
+    },
+    {
+      "id": "WSA.Gripper2",
+      "type": "https://w3id.org/ontoeng/factory#JawFinger",
+      "representations": [
+        {
+          "file": "UR.glb#URgripper2",
+          "unit": 1
+        }
+      ],
+      "properties": { "mass": 0, 
+      "restitution": 0.0, 
+      "friction": 0.0, 
+      "MotionType": "ANIMATED",
+      "isTrigger": true
+       },
+      "position": [0, 40, 40],
+      "placementRelTo": "WSA.EndEffector",
+      "parentObject": "WSA.EndEffector"
+    },
+    {
+      "id": "WSA.Workholding",
+      "type": "https://w3id.org/ontoeng/factory#WorkholdingPosition",
+      "position": [-5.85, 2, 98],
+      "rotation": [0.0414936, -3.0725331, 1.5736656],
+      "placementRelTo": "WSA.EndEffector",
+      "parentObject": "WSA.EndEffector"
+    },
+    {
+      "id": "WSA.Robot",
+      "type": "https://w3id.org/ontoeng/factory#Robot",
+      "representations": [
+        {
+          "file": "UR.glb#URPPs_Robot",
+          "unit": 1
+        }
+      ],
+      "position": [0, 0, 0],
+      "placementRelTo": "WSA",
+      "parentObject": "WSA"
+    },
+    {
+      "id":  "AGV",
+      "type": "https://w3id.org/ontoeng/factory#Robot",
+      "representations": [
+        {
+          "file": "AGV_V3.glb",
+          "unit": 1
+        }
+      ],
+      "position": [-150, 0, 1238],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "building",
+      "properties": {
+        "mass":  1,
+          "restitution":  0.1,
+         "friction":  1,
+         "MotionType":  "ANIMATED"
+      },
+       "statechart": {
+          "id": "AGV_SC",
+          "initial": "AGVrest",
+          "states": {
+            "AGVrest": {
+            "on": { "AGVgo": "AGVmove1"},
+              "entry": [
+                { "action": "moveTo", "target": "AGV", "position": [-150, 0, 1238], "rotation": [0, 0, 0]}
+                  ]
+          },
+          "AGVmove1": {
+            "on": { "AGVgo": "AGVmove2" },
+            "entry": [
+              { "action": "sendEvent", "to": "AGVsurf_SC", "target": "carry1" },
+              { "action": "sendEvent", "to": "AGVsurf_SC", "target": "hold", "delay": 1733 },
+              { "action": "moveTo", "target": "AGV", "position": [-150, 0, 1680], "rotation": [0, 0, 0], "duration": 1733 }
+            ]
+          },
+          "AGVmove2": {
+            "on": { "AGVgo": "AGVmove3" },
+            "entry": [
+              { "action": "sendEvent", "to": "AGVsurf_SC", "target": "carry2" },
+              { "action": "sendEvent", "to": "AGVsurf_SC", "target": "hold", "delay": 4745  },
+              { "action": "moveTo", "target": "AGV", "position": [1060, 0, 1680], "rotation": [0, 0, 0], "duration": 4745  }
+
+            ]
+          },
+          "AGVmove3": {
+            "on": { "AGVgo": "AGVmove4" },
+            "entry": [
+              { "action": "sendEvent", "to": "AGVsurf_SC", "target": "carry3" },
+              { "action": "sendEvent", "to": "AGVsurf_SC", "target": "hold", "delay": 20008  },
+              { "action": "moveTo", "target": "AGV", "position": [1060, 0, -3422], "rotation": [0, 0, 0], "duration": 20008  }
+            ]
+          },
+          "AGVmove4": {
+            "on": { "AGVgo": "AGVend" },
+            "entry": [
+              { "action": "sendEvent", "to": "AGVsurf_SC", "target": "carry4" },
+              { "action": "sendEvent", "to": "AGVsurf_SC", "target": "hold", "delay": 3600  },
+              { "action": "moveTo", "target": "AGV", "position": [1978, 0, -3422], "rotation": [0, 0, 0], "duration": 3600  }
+            ]
+          },
+          "AGVend": { "entry": [ { "action": "sendEvent", "to": "WSB_SC", "target": "WSBgo", "delay": 1000 } ] }
+          }
+       }
+    },
+    {
+      "id": "AGV.surface",
+      "type": "https://w3id.org/ontoeng/factory#Conveyor",
+      "representations": [
+        {
+          "file": "AGV_V3.glb#AGV.4015",
+          "unit": 1
+        }
+      ],
+      "properties": {
+        "mass":  1,
+        "restitution":  0.1,
+         "friction":  1,
+         "MotionType":  "ANIMATED"
+      },
+      "position": [0,  0, 0],
+      "rotation": [0, 0, 0],
+      "placementRelTo": "AGV",
+      "parentObject": "AGV",
+      "statechart": {
+      "id": "AGVsurf_SC",
+      "initial": "hold",
+      "states": {
+        "hold":  {
+          "on": { "carry1": "carry1", "carry2": "carry2", "carry3": "carry3", "carry4": "carry4" },
+          "entry": { "action": "surfaceVelocity", "target": "AGV.surface", "velocity": [0, 0, 0] }
+        },
+        "carry1": {
+          "on": { "hold": "hold" },
+          "entry": { "action": "surfaceVelocity", "target": "AGV.surface", "velocity": [0, 0, 255] }
+        },
+        "carry2": {
+          "on": { "hold": "hold" },
+          "entry": { "action": "surfaceVelocity", "target": "AGV.surface", "velocity": [255, 0, 0] }
+        },
+        "carry3": {
+          "on": { "hold": "hold" },
+          "entry": { "action": "surfaceVelocity", "target": "AGV.surface", "velocity": [0, 0, -255] }
+        },
+        "carry4": {
+          "on": { "hold": "hold" },
+          "entry": { "action": "surfaceVelocity", "target": "AGV.surface", "velocity": [255, 0, 0] }
+        }
+      }
+    }
+    },
+    {
+      "id": "WSB",
+      "type": "https://w3id.org/ontoeng/factory#MachineTool",
+      "representations": [
+        {
+          "file": "UR.glb",
+          "unit": 1
+        }
+      ],
+      "position": [2660, 0, -3360],
+      "placementRelTo": "building"
+    },
+    {
+      "id": "WSB.base",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URbase",
+          "unit": 1
+        }
+      ],
+      "position": [0, 0, 0],
+      "placementRelTo": "WSB.Robot",
+      "parentObject": "WSB.Robot"
+    },
+    {
+      "id": "WSB.link1",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint1",
+          "unit": 1
+        }
+      ],
+      "position": [0, 86.05, 0],
+      "rotation": [0, 0.84055, 0],
+      "placementRelTo": "WSB.base",
+      "parentObject": "WSB.base"
+    },
+    {
+      "id": "WSB.link2",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint2",
+          "unit": 1
+        }
+      ],
+      "position": [0, 65.85, 54],
+      "rotation": [0, 0, -0.5],
+      "placementRelTo": "WSB.link1",
+      "parentObject": "WSB.link1"
+    },
+    {
+      "id": "WSB.link3",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint3",
+          "unit": 1
+        }
+      ],
+      "position": [0, 243.65, 23.6],
+      "rotation": [0, 0, 2.045],
+      "placementRelTo": "WSB.link2",
+      "parentObject": "WSB.link2"
+    },
+    {
+      "id": "WSB.link4",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint4",
+          "unit": 1
+        }
+      ],
+      "position": [0, 213, -8],
+      "rotation": [0, 0, 1.44],
+      "placementRelTo": "WSB.link3",
+      "parentObject": "WSB.link3"
+    },
+    {
+      "id": "WSB.link5",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint5",
+          "unit": 1
+        }
+      ],
+      "position": [0, 42.6, 40.8],
+      "rotation": [0, 0.86, 0],
+      "placementRelTo": "WSB.link4",
+      "parentObject": "WSB.link4"
+    },
+    {
+      "id": "WSB.link6",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URjoint6",
+          "unit": 1
+        }
+      ],
+      "position": [0, 40.8, 42.6],
+      "rotation": [0, 0, 1.511],
+      "placementRelTo": "WSB.link5",
+      "parentObject": "WSB.link5"
+    },
+    {
+      "id": "WSB.EndEffector",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#UREndEffector",
+          "unit": 1
+        }
+      ],
+      "position": [0, 0, 38],
+      "placementRelTo": "WSB.link6",
+      "parentObject": "WSB.link6"
+    },
+    {
+      "id": "WSB.Gripper1",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URgripper1",
+          "unit": 1
+        }
+      ],
+      "position": [0, -12.7, 40],
+      "placementRelTo": "WSB.EndEffector",
+      "parentObject": "WSB.EndEffector",
+      "properties": { "mass": 0, "restitution": 0.0, "friction": 0.0, "MotionType": "ANIMATED" }
+    },
+    {
+      "id": "WSB.Gripper2",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR.glb#URgripper2",
+          "unit": 1
+        }
+      ],
+      "position": [0, 14.3, 40],
+      "placementRelTo": "WSB.EndEffector",
+      "parentObject": "WSB.EndEffector",
+      "properties": { "mass": 0, "restitution": 0.0, "friction": 0.0, "MotionType": "ANIMATED" }
+    },
+    {
+      "id": "WSB.Workholding",
+      "type": "https://w3id.org/ontoeng/factory#WorkholdingPosition",
+      "position": [-5.85, 2, 98],
+      "rotation": [0.0414936, -3.0725331, 1.5736656],
+      "placementRelTo": "WSB.EndEffector",
+      "parentObject": "WSB.EndEffector"
+    },
+    {
+      "id": "WSB.Robot",
+      "type": "https://w3id.org/ontoeng/factory#Robot",
+      "representations": [
+        {
+          "file": "UR.glb#URPPs_Robot",
+          "unit": 1
+        }
+      ],
+      "position": [-330, 0, 12.5],
+      "placementRelTo": "WSB",
+      "parentObject": "WSB"
+    },
+    {
+			"id": "part_01",
+			"type": "https://w3id.org/ontoeng/factory#Artifact",
+			"representations": [
+				{
+					"file": "Part.glb",
+					"unit": 1
+				}
+			],
+			"position": [
+				-182.34951782226562,
+				103.15798950195312,
+				1246.23779296875
+			],
+			"rotation": [
+				0.000003959434065148683,
+				-0.00005692474798008462,
+				-0.0035104792020205166
+			],
+			"properties": {
+				"mass": 1,
+				"restitution": 0.1,
+				"friction": 0.95,
+				"MotionType": "DYNAMIC"
+			},
+			"scale": [
+				0.9999999651358037,
+				1.0000001298248968,
+				0.9999999231764513
+			]
+		},
+		{
+			"id": "part_02",
+			"type": "https://w3id.org/ontoeng/factory#Artifact",
+			"representations": [
+				{
+					"file": "Part.glb",
+					"unit": 1
+				}
+			],
+			"position": [
+				-116.41981506347656,
+				103.07299041748047,
+				1248.28662109375
+			],
+			"rotation": [
+				-4.4259353880212656e-7,
+				-0.00005714013290624629,
+				0.0000023022420493752544
+			],
+			"properties": {
+				"mass": 1,
+				"restitution": 0.1,
+				"friction": 0.95,
+				"MotionType": "DYNAMIC"
+			},
+			"scale": [
+				0.9999998248723977,
+				1.0000000195898038,
+				0.9999998310426675
+			]
+		},
+		{
+			"id": "part_03",
+			"type": "https://w3id.org/ontoeng/factory#Artifact",
+			"representations": [
+				{
+					"file": "Part.glb",
+					"unit": 1
+				}
+			],
+			"position": [
+				-249.814697265625,
+				103.0730209350586,
+				1323.4534912109375
+			],
+			"rotation": [
+				-0.000001000817484057901,
+				-0.00005710091470692985,
+				-5.562038338921985e-7
+			],
+			"properties": {
+				"mass": 1,
+				"restitution": 0.1,
+				"friction": 0.95,
+				"MotionType": "DYNAMIC"
+			},
+			"scale": [
+				0.9999999071825177,
+				1.000000091881335,
+				0.9999998821015158
+			]
+		},
+		{
+			"id": "part_04",
+			"type": "https://w3id.org/ontoeng/factory#Artifact",
+			"representations": [
+				{
+					"file": "Part.glb",
+					"unit": 1
+				}
+			],
+			"position": [
+				-184.18060302734375,
+				103.07310485839844,
+				1324.528076171875
+			],
+			"rotation": [
+				-3.3561925345636317e-7,
+				-0.000056815217009056684,
+				-0.0000013393487434783313
+			],
+			"properties": {
+				"mass": 1,
+				"restitution": 0.1,
+				"friction": 0.96,
+				"MotionType": "DYNAMIC"
+			},
+			"scale": [
+				0.9999999657645955,
+				1.0000000914329565,
+				0.9999999450533091
+			]
+		},
+		{
+			"id": "part_05",
+			"type": "https://w3id.org/ontoeng/factory#Artifact",
+			"representations": [
+				{
+					"file": "Part.glb",
+					"unit": 1
+				}
+			],
+			"position": [
+				-119.19982147216797,
+				103.07302856445312,
+				1321.3958740234375
+			],
+			"rotation": [
+				0.00000882514873078768,
+				-0.000057051898619459314,
+				0.000004547745632059819
+			],
+			"properties": {
+				"mass": 1,
+				"restitution": 0.1,
+				"friction": 0.97,
+				"MotionType": "DYNAMIC"
+			},
+			"scale": [
+				0.9999998265589688,
+				1.0000000767030504,
+				0.9999998256862859
+			]
+		},
+		{
+			"id": "part_06",
+			"type": "https://w3id.org/ontoeng/factory#Artifact",
+			"representations": [
+				{
+					"file": "Part.glb",
+					"unit": 1
+				}
+			],
+			"position": [
+				-54.5557746887207,
+				103.07302856445312,
+				1321.2786865234375
+			],
+			"rotation": [
+				-0.0000010504796942390475,
+				-0.00005675217077052507,
+				-5.532922729853427e-7
+			],
+			"properties": {
+				"mass": 1,
+				"restitution": 0.1,
+				"friction": 0.98,
+				"MotionType": "DYNAMIC"
+			},
+			"scale": [
+				1.0000000431754328,
+				1.000000095795704,
+				0.9999999945818737
+			]
+		},
+		{
+			"id": "part_07",
+			"type": "https://w3id.org/ontoeng/factory#Artifact",
+			"representations": [
+				{
+					"file": "Part.glb",
+					"unit": 1
+				}
+			],
+			"position": [
+				-249.81480407714844,
+				103.07308959960938,
+				1399.886962890625
+			],
+			"rotation": [
+				-0.000001164974773378433,
+				-0.000057028148097298703,
+				-6.166690949676789e-8
+			],
+			"properties": {
+				"mass": 1,
+				"restitution": 0.1,
+				"friction": 0.99,
+				"MotionType": "DYNAMIC"
+			},
+			"scale": [
+				1.0000001123514075,
+				0.9999999746338697,
+				0.9999999869601416
+			]
+		},
+		{
+			"id": "part_08",
+			"type": "https://w3id.org/ontoeng/factory#Artifact",
+			"representations": [
+				{
+					"file": "Part.glb",
+					"unit": 1
+				}
+			],
+			"position": [
+				-183.67835998535156,
+				103.07302856445312,
+				1399.0067138671875
+			],
+			"rotation": [
+				-0.000001000724629242005,
+				-0.0000570916451364385,
+				-5.572515790778321e-7
+			],
+			"properties": {
+				"mass": 1,
+				"restitution": 0.1,
+				"friction": 0.1,
+				"MotionType": "DYNAMIC"
+			},
+			"scale": [
+				1.0000000471250097,
+				1.0000001098438032,
+				0.9999999434638505
+			]
+		},
+		{
+			"id": "part_09",
+			"type": "https://w3id.org/ontoeng/factory#Artifact",
+			"representations": [
+				{
+					"file": "Part.glb",
+					"unit": 1
+				}
+			],
+			"position": [
+				-119.42070007324219,
+				103.07302856445312,
+				1399.96630859375
+			],
+			"rotation": [
+				-0.0000010301831984330078,
+				-0.00005684688192064465,
+				-5.449108401205652e-7
+			],
+			"properties": {
+				"mass": 1,
+				"restitution": 0.1,
+				"friction": 0.101,
+				"MotionType": "DYNAMIC"
+			},
+			"scale": [
+				0.9999999061514172,
+				0.9999999762141552,
+				0.9999998894540059
+			]
+		},
+		{
+			"id": "part_10",
+			"type": "https://w3id.org/ontoeng/factory#Artifact",
+			"representations": [
+				{
+					"file": "Part.glb",
+					"unit": 1
+				}
+			],
+			"position": [
+				-53.27489471435547,
+				103.07302856445312,
+				1397.006103515625
+			],
+			"rotation": [
+				-0.0000010466680828972249,
+				-0.00005731101524686673,
+				-5.546890157001179e-7
+			],
+			"properties": {
+				"mass": 1,
+				"restitution": 0.1,
+				"friction": 0.95,
+				"MotionType": "DYNAMIC"
+			},
+			"scale": [
+				0.9999999630541319,
+				0.9999999783269958,
+				0.9999999567786891
+			]
+		},
+    {
+      "id": "Grid",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Grid.glb",
+          "unit": 1
+        }
+      ],
+      "position": [2200, 540, -2600],
+      "rotation": [0, -1.5707963267949, -1.5707963267949],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 0,
+        "restitution": 0.3,
+        "friction": 0.0,
+        "MotionType": "ANIMATED"
+      }
+    },
+    {
+      "id": "Box",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Box_large.glb",
+          "unit": 1
+        }
+      ],
+      "position": [2200, 0, -3000],
+      "rotation": [0, -1.5707963267949, 0],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 0,
+        "restitution": 0.3,
+        "friction": 0.0,
+        "MotionType": "ANIMATED"
+      }
+    }
+  ]
+}

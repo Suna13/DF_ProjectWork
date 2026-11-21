@@ -1,0 +1,6811 @@
+{
+  "context": {
+    "UnitOfMeasureScale": 0.001,
+    "Zup": false,
+    "RepoPath": ""
+  },
+  "scene": [
+    "building",
+    "part_01",
+    "part_02",
+    "part_03",
+    "part_04",
+    "part_05",
+    "part_06",
+    "part_07",
+    "part_08",
+    "part_09",
+    "part_10",
+    "Grid",
+    "Box",
+    "WSB",
+    "WSB.base",
+    "WSB.link1",
+    "WSB.link2",
+    "WSB.link3",
+    "WSB.link4",
+    "WSB.link5",
+    "WSB.link6",
+    "WSB.EndEffector",
+    "WSB.Gripper1",
+    "WSB.Gripper2",
+    "WSB.Workholding",
+    "WSB.Robot",
+    "AGV",
+    "AGV.surface"
+  ],
+  "assets": [
+    {
+      "id": "building",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcBuilding"
+    },
+    {
+      "id": "part_01",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [
+        1950.14501953125,
+        103.07304382324219,
+        -3425.152099609375
+      ],
+      "rotation": [
+        -1.6002197698265753e-07,
+        0.017396396768948937,
+        -8.183797238602666e-08
+      ],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.95
+      }
+    },
+    {
+      "id": "part_02",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [
+        2016.07470703125,
+        103.07304382324219,
+        -3423.103271484375
+      ],
+      "rotation": [
+        -1.6002197698265753e-07,
+        0.017396396768948937,
+        -8.183797238602666e-08
+      ],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.95
+      }
+    },
+    {
+      "id": "part_03",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [
+        1881.9647216796875,
+        103.0730209350586,
+        -3345.5478515625
+      ],
+      "rotation": [
+        2.4469540316696086e-06,
+        0.0315272817814841,
+        -3.982442931981526e-06
+      ],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.95
+      }
+    },
+    {
+      "id": "part_04",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [
+        1943.1295166015625,
+        103.1477279663086,
+        -3350.608154296875
+      ],
+      "rotation": [
+        -0.002607397243784547,
+        0.031641725264960764,
+        0.00033615750233020306
+      ],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.96
+      }
+    },
+    {
+      "id": "part_05",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [
+        2013.287353515625,
+        103.07305145263672,
+        -3347.194091796875
+      ],
+      "rotation": [
+        6.088622904183914e-07,
+        0.01739620119872189,
+        3.745795196830817e-07
+      ],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.97
+      }
+    },
+    {
+      "id": "part_06",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [
+        2077.96484375,
+        103.07305145263672,
+        -3347.3115234375
+      ],
+      "rotation": [
+        -1.5730298678213349e-07,
+        0.01739626080100205,
+        -8.251282910950812e-08
+      ],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.98
+      }
+    },
+    {
+      "id": "part_07",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [
+        1882.6640625,
+        103.07304382324219,
+        -3273.582763671875
+      ],
+      "rotation": [
+        3.833580137769078e-08,
+        0.017396204923754786,
+        -1.2004456308538274e-07
+      ],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.99
+      }
+    },
+    {
+      "id": "part_08",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [
+        1948.8037109375,
+        103.07305145263672,
+        -3273.423095703125
+      ],
+      "rotation": [
+        -2.83762534769807e-07,
+        0.017396229137291403,
+        -4.5324547862566604e-07
+      ],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.1
+      }
+    },
+    {
+      "id": "part_09",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [
+        2013.080810546875,
+        103.07305145263672,
+        -3272.3037109375
+      ],
+      "rotation": [
+        -1.577030664175701e-07,
+        0.017396221686935064,
+        -8.158494828785321e-08
+      ],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.101
+      }
+    },
+    {
+      "id": "part_10",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Part.glb",
+          "unit": 1
+        }
+      ],
+      "position": [
+        2079.21240234375,
+        103.07305145263672,
+        -3273.103759765625
+      ],
+      "rotation": [
+        -1.5966547295247665e-07,
+        0.017396286877046703,
+        -8.183486259298024e-08
+      ],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.95
+      }
+    },
+    {
+      "id": "Grid",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Grid.glb",
+          "unit": 1
+        }
+      ],
+      "position": [
+        2200,
+        540,
+        -2600
+      ],
+      "rotation": [
+        0,
+        -1.5707963267949,
+        -1.5707963267949
+      ],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 0,
+        "restitution": 0.3,
+        "friction": 0.0,
+        "MotionType": "ANIMATED"
+      }
+    },
+    {
+      "id": "Box",
+      "type": "https://w3id.org/ontoeng/factory#Artifact",
+      "representations": [
+        {
+          "file": "Box_large.glb",
+          "unit": 1
+        }
+      ],
+      "position": [
+        2200,
+        0,
+        -3000
+      ],
+      "rotation": [
+        0,
+        -1.5707963267949,
+        0
+      ],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 0,
+        "restitution": 0.3,
+        "friction": 0.0,
+        "MotionType": "ANIMATED"
+      }
+    },
+    {
+      "id": "WSB",
+      "type": "https://w3id.org/ontoeng/factory#MachineTool",
+      "representations": [
+        {
+          "file": "UR_Mag.glb",
+          "unit": 1
+        }
+      ],
+      "position": [
+        2660,
+        0,
+        -3360
+      ],
+      "placementRelTo": "building",
+      "statechart": {
+        "id": "WSB_SC",
+        "initial": "WSBrest_1",
+        "states": {
+          "WSBrest_1": {
+            "on": {
+              "WSBgoPick": "WSBoverAGV_1"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.8255407361933179,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.6214108751027323
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5132005,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.5109315
+                ]
+              }
+            ]
+          },
+          "WSBoverAGV_1": {
+            "on": {
+              "WSBnext": "WSBabovePlace_1",
+              "WSBback": "WSBrest_1"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.9634954
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.4502949
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5132005,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  32
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  32
+                ]
+              }
+            ]
+          },
+          "WSBabovePlace_1": {
+            "on": {
+              "WSBnext": "WSBplace_1",
+              "WSBback": "WSBoverAGV_1"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.4698886,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.4230803
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.454496
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.3067801
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.1009078
+                ]
+              }
+            ]
+          },
+          "WSBplace_1": {
+            "on": {
+              "WSBnext": "WSBliftPlace_1",
+              "WSBback": "WSBabovePlace_1"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.4698886,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.5308108
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.6063002
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.5663147
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.1009078
+                ]
+              }
+            ]
+          },
+          "WSBliftPlace_1": {
+            "on": {
+              "WSBnext": "WSBoverBox_1",
+              "WSBback": "WSBplace_1"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.4698886,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.3806413
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.2536303
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.0634752
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.1009078
+                ]
+              }
+            ]
+          },
+          "WSBoverBox_1": {
+            "on": {
+              "WSBnext": "WSBrest_2",
+              "WSBback": "WSBliftPlace_1"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.6941246,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.8667836
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.4428871
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.2611257
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5707963,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.6941246
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  20
+                ],
+                "delay": 1500
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  20
+                ],
+                "delay": 1500
+              }
+            ]
+          },
+          "WSBrest_2": {
+            "on": {
+              "WSBgoPick": "WSBoverAGV_2",
+              "WSBback": "WSBoverBox_1"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.8255407361933179,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.6214108751027323
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5132005,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "sendEvent",
+                "target": "WSBgoPick",
+                "delay": 1200
+              }
+            ]
+          },
+          "WSBoverAGV_2": {
+            "on": {
+              "WSBnext": "WSBabovePlace_2",
+              "WSBback": "WSBrest_2"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.9634954
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.4502949
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5132005,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  32
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  32
+                ]
+              }
+            ]
+          },
+          "WSBabovePlace_2": {
+            "on": {
+              "WSBnext": "WSBplace_2",
+              "WSBback": "WSBoverAGV_2"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.5579332,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.1709489
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.7963297
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.3964822
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.0128632
+                ]
+              }
+            ]
+          },
+          "WSBplace_2": {
+            "on": {
+              "WSBnext": "WSBliftPlace_2",
+              "WSBback": "WSBabovePlace_2"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.5579332,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.3094167
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.9553668
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.6939872
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.0128632
+                ]
+              }
+            ]
+          },
+          "WSBliftPlace_2": {
+            "on": {
+              "WSBnext": "WSBoverBox_2",
+              "WSBback": "WSBplace_2"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.5579332,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.1109263
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.5985893
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.1387192
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.0128632
+                ]
+              }
+            ]
+          },
+          "WSBoverBox_2": {
+            "on": {
+              "WSBnext": "WSBrest_3",
+              "WSBback": "WSBliftPlace_2"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.8134932,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.6131594
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.8945212
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.0631157
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5707963,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.8134932
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  20
+                ],
+                "delay": 1500
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  20
+                ],
+                "delay": 1500
+              }
+            ]
+          },
+          "WSBrest_3": {
+            "on": {
+              "WSBgoPick": "WSBoverAGV_3",
+              "WSBback": "WSBoverBox_2"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.8255407361933179,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.6214108751027323
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5132005,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "sendEvent",
+                "target": "WSBgoPick",
+                "delay": 1200
+              }
+            ]
+          },
+          "WSBoverAGV_3": {
+            "on": {
+              "WSBnext": "WSBabovePlace_3",
+              "WSBback": "WSBrest_3"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.9634954
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.4502949
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5132005,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  32
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  32
+                ]
+              }
+            ]
+          },
+          "WSBabovePlace_3": {
+            "on": {
+              "WSBnext": "WSBplace_3",
+              "WSBback": "WSBoverAGV_3"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.2249875,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.6791748
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.0406582
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.1490367
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.3458088
+                ]
+              }
+            ]
+          },
+          "WSBplace_3": {
+            "on": {
+              "WSBnext": "WSBliftPlace_3",
+              "WSBback": "WSBabovePlace_3"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.2249875,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.7546817
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.2089682
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.3928536
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.3458088
+                ]
+              }
+            ]
+          },
+          "WSBliftPlace_3": {
+            "on": {
+              "WSBnext": "WSBoverBox_3",
+              "WSBback": "WSBplace_3"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.2249875,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.672828
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.793787
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.1041814
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.3458088
+                ]
+              }
+            ]
+          },
+          "WSBoverBox_3": {
+            "on": {
+              "WSBnext": "WSBrest_4",
+              "WSBback": "WSBliftPlace_3"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.9470785,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.4742184
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.1156551
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  -0.0190771
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5707963,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.9470785
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  20
+                ],
+                "delay": 1500
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  20
+                ],
+                "delay": 1500
+              }
+            ]
+          },
+          "WSBrest_4": {
+            "on": {
+              "WSBgoPick": "WSBoverAGV_4",
+              "WSBback": "WSBoverBox_3"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.8255407361933179,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.6214108751027323
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5132005,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "sendEvent",
+                "target": "WSBgoPick",
+                "delay": 1200
+              }
+            ]
+          },
+          "WSBoverAGV_4": {
+            "on": {
+              "WSBnext": "WSBabovePlace_4",
+              "WSBback": "WSBrest_4"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.9634954
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.4502949
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5132005,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  32
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  32
+                ]
+              }
+            ]
+          },
+          "WSBabovePlace_4": {
+            "on": {
+              "WSBnext": "WSBplace_4",
+              "WSBback": "WSBoverAGV_4"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.288433,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.4290477
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.4455705
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.3038219
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.2823633
+                ]
+              }
+            ]
+          },
+          "WSBplace_4": {
+            "on": {
+              "WSBnext": "WSBliftPlace_4",
+              "WSBback": "WSBabovePlace_4"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.288433,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.5360608
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.5974354
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.5626999
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.2823633
+                ]
+              }
+            ]
+          },
+          "WSBliftPlace_4": {
+            "on": {
+              "WSBnext": "WSBoverBox_4",
+              "WSBback": "WSBplace_4"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.288433,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.387176
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.2442903
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.0606701
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.2823633
+                ]
+              }
+            ]
+          },
+          "WSBoverBox_4": {
+            "on": {
+              "WSBnext": "WSBrest_5",
+              "WSBback": "WSBliftPlace_4"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.504803,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.4166021
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.2016788
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  -0.0474845
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5707963,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.504803
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  20
+                ],
+                "delay": 1500
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  20
+                ],
+                "delay": 1500
+              }
+            ]
+          },
+          "WSBrest_5": {
+            "on": {
+              "WSBgoPick": "WSBoverAGV_5",
+              "WSBback": "WSBoverBox_4"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.8255407361933179,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.6214108751027323
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5132005,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "sendEvent",
+                "target": "WSBgoPick",
+                "delay": 1200
+              }
+            ]
+          },
+          "WSBoverAGV_5": {
+            "on": {
+              "WSBnext": "WSBabovePlace_5",
+              "WSBback": "WSBrest_5"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.9634954
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.4502949
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5132005,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  32
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  32
+                ]
+              }
+            ]
+          },
+          "WSBabovePlace_5": {
+            "on": {
+              "WSBnext": "WSBplace_5",
+              "WSBback": "WSBoverAGV_5"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.3261872,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.1353711
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.8386477
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.4032225
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.2446091
+                ]
+              }
+            ]
+          },
+          "WSBplace_5": {
+            "on": {
+              "WSBnext": "WSBliftPlace_5",
+              "WSBback": "WSBabovePlace_5"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.3261872,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.2782422
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  2.0000528
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.7074987
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.2446091
+                ]
+              }
+            ]
+          },
+          "WSBliftPlace_5": {
+            "on": {
+              "WSBnext": "WSBoverBox_5",
+              "WSBback": "WSBplace_5"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.3261872,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0737976
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.639674
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.1426753
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.2446091
+                ]
+              }
+            ]
+          },
+          "WSBoverBox_5": {
+            "on": {
+              "WSBnext": "WSBrest_6",
+              "WSBback": "WSBliftPlace_5"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  1.0920498,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.3449404
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.3038596
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  -0.0780037
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5707963,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.0920498
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  20
+                ],
+                "delay": 1500
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  20
+                ],
+                "delay": 1500
+              }
+            ]
+          },
+          "WSBrest_6": {
+            "on": {
+              "WSBgoPick": "WSBoverAGV_6",
+              "WSBback": "WSBoverBox_5"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.8255407361933179,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.6214108751027323
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5132005,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "sendEvent",
+                "target": "WSBgoPick",
+                "delay": 1200
+              }
+            ]
+          },
+          "WSBoverAGV_6": {
+            "on": {
+              "WSBnext": "WSBabovePlace_6",
+              "WSBback": "WSBrest_6"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.9634954
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.4502949
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5132005,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  32
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  32
+                ]
+              }
+            ]
+          },
+          "WSBabovePlace_6": {
+            "on": {
+              "WSBnext": "WSBplace_6",
+              "WSBback": "WSBoverAGV_6"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.4164965,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.1511649
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  2.1223811
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.4004199
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.1542998
+                ]
+              }
+            ]
+          },
+          "WSBplace_6": {
+            "on": {
+              "WSBnext": "WSBliftPlace_6",
+              "WSBback": "WSBabovePlace_6"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.4164965,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0247066
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  2.312537
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.7664473
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.1542998
+                ]
+              }
+            ]
+          },
+          "WSBliftPlace_6": {
+            "on": {
+              "WSBnext": "WSBoverBox_6",
+              "WSBback": "WSBplace_6"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.4164965,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.2151951
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.9051945
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.119203
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.1542998
+                ]
+              }
+            ]
+          },
+          "WSBoverBox_6": {
+            "on": {
+              "WSBnext": "WSBrest_7",
+              "WSBback": "WSBliftPlace_6"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  1.2600192,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.298137
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.3676447
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  -0.0949854
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5707963,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.2600192
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  20
+                ],
+                "delay": 1500
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  20
+                ],
+                "delay": 1500
+              }
+            ]
+          },
+          "WSBrest_7": {
+            "on": {
+              "WSBgoPick": "WSBoverAGV_7",
+              "WSBback": "WSBoverBox_6"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.8255407361933179,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.6214108751027323
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5132005,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "sendEvent",
+                "target": "WSBgoPick",
+                "delay": 1200
+              }
+            ]
+          },
+          "WSBoverAGV_7": {
+            "on": {
+              "WSBnext": "WSBabovePlace_7",
+              "WSBback": "WSBrest_7"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.9634954
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.4502949
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5132005,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  32
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  32
+                ]
+              }
+            ]
+          },
+          "WSBabovePlace_7": {
+            "on": {
+              "WSBnext": "WSBplace_7",
+              "WSBback": "WSBoverAGV_7"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.0804846,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.7125208
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.9821569
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.1238813
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.4903118
+                ]
+              }
+            ]
+          },
+          "WSBplace_7": {
+            "on": {
+              "WSBnext": "WSBliftPlace_7",
+              "WSBback": "WSBabovePlace_7"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.0804846,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.7831961
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.1555204
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.3679202
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.4903118
+                ]
+              }
+            ]
+          },
+          "WSBliftPlace_7": {
+            "on": {
+              "WSBnext": "WSBoverBox_7",
+              "WSBback": "WSBplace_7"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.0804846,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.7141157
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.7220948
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.1345859
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.4903118
+                ]
+              }
+            ]
+          },
+          "WSBoverBox_7": {
+            "on": {
+              "WSBnext": "WSBrest_8",
+              "WSBback": "WSBliftPlace_7"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.6258513,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.2252021
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.4622796
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  -0.1166853
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5707963,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.6258513
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  20
+                ],
+                "delay": 1500
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  20
+                ],
+                "delay": 1500
+              }
+            ]
+          },
+          "WSBrest_8": {
+            "on": {
+              "WSBgoPick": "WSBoverAGV_8",
+              "WSBback": "WSBoverBox_7"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.8255407361933179,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.6214108751027323
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5132005,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "sendEvent",
+                "target": "WSBgoPick",
+                "delay": 1200
+              }
+            ]
+          },
+          "WSBoverAGV_8": {
+            "on": {
+              "WSBnext": "WSBabovePlace_8",
+              "WSBback": "WSBrest_8"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.9634954
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.4502949
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5132005,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  32
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  32
+                ]
+              }
+            ]
+          },
+          "WSBabovePlace_8": {
+            "on": {
+              "WSBnext": "WSBplace_8",
+              "WSBback": "WSBoverAGV_8"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.086624,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.4268206
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.4489061
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.3049303
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.4841723
+                ]
+              }
+            ]
+          },
+          "WSBplace_8": {
+            "on": {
+              "WSBnext": "WSBliftPlace_8",
+              "WSBback": "WSBabovePlace_8"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.086624,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.5341014
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.6007469
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.564052
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.4841723
+                ]
+              }
+            ]
+          },
+          "WSBliftPlace_8": {
+            "on": {
+              "WSBnext": "WSBoverBox_8",
+              "WSBback": "WSBplace_8"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.086624,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.3847361
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.2477829
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.0617227
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.4841723
+                ]
+              }
+            ]
+          },
+          "WSBoverBox_8": {
+            "on": {
+              "WSBnext": "WSBrest_9",
+              "WSBback": "WSBliftPlace_8"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.7716609,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.0731363
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.6403913
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  -0.1427313
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5707963,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.7716609
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  20
+                ],
+                "delay": 1500
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  20
+                ],
+                "delay": 1500
+              }
+            ]
+          },
+          "WSBrest_9": {
+            "on": {
+              "WSBgoPick": "WSBoverAGV_9",
+              "WSBback": "WSBoverBox_8"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.8255407361933179,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.6214108751027323
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5132005,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "sendEvent",
+                "target": "WSBgoPick",
+                "delay": 1200
+              }
+            ]
+          },
+          "WSBoverAGV_9": {
+            "on": {
+              "WSBnext": "WSBabovePlace_9",
+              "WSBback": "WSBrest_9"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.9634954
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.4502949
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5132005,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  32
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  32
+                ]
+              }
+            ]
+          },
+          "WSBabovePlace_9": {
+            "on": {
+              "WSBnext": "WSBplace_9",
+              "WSBback": "WSBoverAGV_9"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.1041802,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.1732313
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.793563
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.395998
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.4666161
+                ]
+              }
+            ]
+          },
+          "WSBplace_9": {
+            "on": {
+              "WSBnext": "WSBliftPlace_9",
+              "WSBback": "WSBabovePlace_9"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.1041802,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.3114168
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.9524584
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.6930788
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.4666161
+                ]
+              }
+            ]
+          },
+          "WSBliftPlace_9": {
+            "on": {
+              "WSBnext": "WSBoverBox_9",
+              "WSBback": "WSBplace_9"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.1041802,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.113316
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.5958907
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.1384104
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.4666161
+                ]
+              }
+            ]
+          },
+          "WSBoverBox_9": {
+            "on": {
+              "WSBnext": "WSBrest_10",
+              "WSBback": "WSBliftPlace_9"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.958694,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  -0.0147559
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.7312477
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  -0.1456955
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5707963,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0.958694
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  20
+                ],
+                "delay": 1500
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  20
+                ],
+                "delay": 1500
+              }
+            ]
+          },
+          "WSBrest_10": {
+            "on": {
+              "WSBgoPick": "WSBoverAGV_10",
+              "WSBback": "WSBoverBox_9"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.8255407361933179,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.6214108751027323
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5132005,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "sendEvent",
+                "target": "WSBgoPick",
+                "delay": 1200
+              }
+            ]
+          },
+          "WSBoverAGV_10": {
+            "on": {
+              "WSBnext": "WSBabovePlace_10",
+              "WSBback": "WSBrest_10"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.9634954
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.4502949
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5132005,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.5109315
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  32
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  32
+                ]
+              }
+            ]
+          },
+          "WSBabovePlace_10": {
+            "on": {
+              "WSBnext": "WSBplace_10",
+              "WSBback": "WSBoverAGV_10"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.1347399,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.1067572
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  2.0850781
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.4075245
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.4360564
+                ]
+              }
+            ]
+          },
+          "WSBplace_10": {
+            "on": {
+              "WSBnext": "WSBliftPlace_10",
+              "WSBback": "WSBabovePlace_10"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.1347399,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  0.0646319
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  2.2697855
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.7636211
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.4360564
+                ]
+              }
+            ]
+          },
+          "WSBliftPlace_10": {
+            "on": {
+              "WSBnext": "WSBoverBox_10",
+              "WSBback": "WSBplace_10"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0.0,
+                  -0.1347399,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.1717459
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.8713744
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  -0.1288321
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0.0,
+                  -1.5707953,
+                  0.0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0.0,
+                  0.0,
+                  1.4360564
+                ]
+              }
+            ]
+          },
+          "WSBoverBox_10": {
+            "on": {
+              "WSBnext": "WSBrest_end",
+              "WSBback": "WSBliftPlace_10"
+            },
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  1.1844896,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  -0.0317813
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.7478152
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  -0.1452376
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5707963,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.1844896
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper1",
+                "position": [
+                  0,
+                  -10,
+                  20
+                ],
+                "delay": 1500
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.Gripper2",
+                "position": [
+                  0,
+                  10,
+                  20
+                ],
+                "delay": 1500
+              }
+            ]
+          },
+          "WSBrest_end": {
+            "entry": [
+              {
+                "action": "moveTo",
+                "target": "WSB.link1",
+                "position": [
+                  0,
+                  86.05,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0.8255407361933179,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link2",
+                "position": [
+                  0,
+                  65.85,
+                  54
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link3",
+                "position": [
+                  0,
+                  243.65,
+                  23.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.6214108751027323
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link4",
+                "position": [
+                  0,
+                  213,
+                  -8
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link5",
+                "position": [
+                  0,
+                  42.6,
+                  40.8
+                ],
+                "rotation": [
+                  0,
+                  -1.5132005,
+                  0
+                ]
+              },
+              {
+                "action": "moveTo",
+                "target": "WSB.link6",
+                "position": [
+                  0,
+                  40.8,
+                  42.6
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  1.5109315
+                ]
+              }
+            ],
+            "on": {
+              "WSBback": "WSBoverBox_10"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "WSB.base",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR_Mag.glb#URbase",
+          "unit": 1
+        }
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "placementRelTo": "WSB.Robot",
+      "parentObject": "WSB.Robot"
+    },
+    {
+      "id": "WSB.link1",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR_Mag.glb#URjoint1",
+          "unit": 1
+        }
+      ],
+      "position": [
+        0,
+        86.05,
+        0
+      ],
+      "rotation": [
+        0,
+        0.84055,
+        0
+      ],
+      "placementRelTo": "WSB.base",
+      "parentObject": "WSB.base"
+    },
+    {
+      "id": "WSB.link2",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR_Mag.glb#URjoint2",
+          "unit": 1
+        }
+      ],
+      "position": [
+        0,
+        65.85,
+        54
+      ],
+      "rotation": [
+        0,
+        0,
+        -0.5
+      ],
+      "placementRelTo": "WSB.link1",
+      "parentObject": "WSB.link1"
+    },
+    {
+      "id": "WSB.link3",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR_Mag.glb#URjoint3",
+          "unit": 1
+        }
+      ],
+      "position": [
+        0,
+        243.65,
+        23.6
+      ],
+      "rotation": [
+        0,
+        0,
+        2.045
+      ],
+      "placementRelTo": "WSB.link2",
+      "parentObject": "WSB.link2"
+    },
+    {
+      "id": "WSB.link4",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR_Mag.glb#URjoint4",
+          "unit": 1
+        }
+      ],
+      "position": [
+        0,
+        213,
+        -8
+      ],
+      "rotation": [
+        0,
+        0,
+        1.44
+      ],
+      "placementRelTo": "WSB.link3",
+      "parentObject": "WSB.link3"
+    },
+    {
+      "id": "WSB.link5",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR_Mag.glb#URjoint5",
+          "unit": 1
+        }
+      ],
+      "position": [
+        0,
+        42.6,
+        40.8
+      ],
+      "rotation": [
+        0,
+        0.86,
+        0
+      ],
+      "placementRelTo": "WSB.link4",
+      "parentObject": "WSB.link4"
+    },
+    {
+      "id": "WSB.link6",
+      "type": "https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD1/OWL#IfcElementAssembly",
+      "representations": [
+        {
+          "file": "UR_Mag.glb#URjoint6",
+          "unit": 1
+        }
+      ],
+      "position": [
+        0,
+        40.8,
+        42.6
+      ],
+      "rotation": [
+        0,
+        0,
+        1.511
+      ],
+      "placementRelTo": "WSB.link5",
+      "parentObject": "WSB.link5"
+    },
+    {
+      "id": "WSB.EndEffector",
+      "type": "https://w3id.org/ontoeng/factory#JawGripper",
+      "representations": [
+        {
+          "file": "UR_Mag.glb#UREndEffector",
+          "unit": 1
+        }
+      ],
+      "position": [
+        0,
+        0,
+        38
+      ],
+      "placementRelTo": "WSB.link6",
+      "parentObject": "WSB.link6"
+    },
+    {
+      "id": "WSB.Gripper1",
+      "type": "https://w3id.org/ontoeng/factory#JawFinger",
+      "representations": [
+        {
+          "file": "UR_Mag.glb#URgripper1",
+          "unit": 1
+        }
+      ],
+      "position": [
+        0,
+        -10,
+        32
+      ],
+      "placementRelTo": "WSB.EndEffector",
+      "parentObject": "WSB.EndEffector",
+      "properties": {
+        "mass": 0,
+        "restitution": 0.0,
+        "friction": 0.0,
+        "MotionType": "ANIMATED",
+        "isTrigger": true
+      }
+    },
+    {
+      "id": "WSB.Gripper2",
+      "type": "https://w3id.org/ontoeng/factory#JawFinger",
+      "representations": [
+        {
+          "file": "UR_Mag.glb#URgripper2",
+          "unit": 1
+        }
+      ],
+      "position": [
+        0,
+        10,
+        32
+      ],
+      "placementRelTo": "WSB.EndEffector",
+      "parentObject": "WSB.EndEffector",
+      "properties": {
+        "mass": 0,
+        "restitution": 0.0,
+        "friction": 0.0,
+        "MotionType": "ANIMATED",
+        "isTrigger": true
+      }
+    },
+    {
+      "id": "WSB.Workholding",
+      "type": "https://w3id.org/ontoeng/factory#WorkholdingPosition",
+      "position": [
+        -5.85,
+        2,
+        98
+      ],
+      "rotation": [
+        0.0414936,
+        -3.0725331,
+        1.5736656
+      ],
+      "placementRelTo": "WSB.EndEffector",
+      "parentObject": "WSB.EndEffector"
+    },
+    {
+      "id": "WSB.Robot",
+      "type": "https://w3id.org/ontoeng/factory#Robot",
+      "representations": [
+        {
+          "file": "UR_Mag.glb#URPPs_Robot",
+          "unit": 1
+        }
+      ],
+      "position": [
+        -330,
+        0,
+        12.5
+      ],
+      "placementRelTo": "WSB",
+      "parentObject": "WSB"
+    },
+    {
+      "id": "AGV",
+      "type": "https://w3id.org/ontoeng/factory#Robot",
+      "representations": [
+        {
+          "file": "AGV_V3.glb",
+          "unit": 1
+        }
+      ],
+      "position": [
+        1978,
+        0,
+        -3422
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "placementRelTo": "building",
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.0,
+        "MotionType": "ANIMATED"
+      },
+      "statechart": {
+        "id": "AGV_SC",
+        "initial": "AGVend",
+        "states": {
+          "AGVend": {
+            "entry": [
+              {
+                "action": "sendEvent",
+                "to": "WSB_SC",
+                "target": "WSBgoPick",
+                "delay": 3000
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "AGV.surface",
+      "type": "https://w3id.org/ontoeng/factory#Conveyor",
+      "representations": [
+        {
+          "file": "AGV_V3.glb#AGV.4015",
+          "unit": 1
+        }
+      ],
+      "properties": {
+        "mass": 1,
+        "restitution": 0.1,
+        "friction": 0.0,
+        "MotionType": "ANIMATED"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "placementRelTo": "AGV",
+      "parentObject": "AGV",
+      "statechart": {
+        "id": "AGVsurf_SC",
+        "initial": "hold",
+        "states": {
+          "hold": {
+            "on": {
+              "carry1_ev": "carry1",
+              "carry2_ev": "carry2",
+              "carry3_ev": "carry3",
+              "carry4_ev": "carry4"
+            },
+            "entry": {
+              "action": "surfaceVelocity",
+              "target": "AGV.surface",
+              "velocity": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          "carry1": {
+            "on": {
+              "hold_ev": "hold"
+            },
+            "entry": {
+              "action": "surfaceVelocity",
+              "target": "AGV.surface",
+              "velocity": [
+                0,
+                0,
+                100
+              ]
+            }
+          },
+          "carry2": {
+            "on": {
+              "hold_ev": "hold"
+            },
+            "entry": {
+              "action": "surfaceVelocity",
+              "target": "AGV.surface",
+              "velocity": [
+                100,
+                0,
+                0
+              ]
+            }
+          },
+          "carry3": {
+            "on": {
+              "hold_ev": "hold"
+            },
+            "entry": {
+              "action": "surfaceVelocity",
+              "target": "AGV.surface",
+              "velocity": [
+                0,
+                0,
+                -100
+              ]
+            }
+          },
+          "carry4": {
+            "on": {
+              "hold_ev": "hold"
+            },
+            "entry": {
+              "action": "surfaceVelocity",
+              "target": "AGV.surface",
+              "velocity": [
+                100,
+                0,
+                0
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}
