@@ -6,7 +6,7 @@ Open the final model directly in VEB.js (scene, environment, animation and 3D mo
 
 https://digital-factory.io/vebjs/?inputscene=https://suna13.github.io/DF_ProjectWork/DFE_09_V10&inputenv=https://suna13.github.io/DF_ProjectWork/env/DFE_09_env&inputanim=https://suna13.github.io/DF_ProjectWork/anim/DFE_09_anim&repoMod3d=https://suna13.github.io/DF_ProjectWork/assets/
 
-The simulation starts automatically and ends with all ten parts in the box (about 4 min 32 s). The test scenes in `test/` (e.g. `test/DFE_09_WSA`, `test/DFE_09_WSB`) are opened with the same link, replacing `DFE_09_V10` in `inputscene`; in these scenes each step is triggered manually with the `next`/`back` events.
+The simulation start after clicking on play on the animation pannel and ends with all ten parts in the box. The test scenes in `test/` (e.g. `test/DFE_09_WSA`, `test/DFE_09_WSB`) are opened with the same link, replacing `DFE_09_V10` in `inputscene`; in these scenes each step is triggered manually with the `next`/`back` events.
 
 ## Package content
 
@@ -30,9 +30,14 @@ The simulation starts automatically and ends with all ten parts in the box (abou
 * `DFE_09_V10.json`: scene exported from VEB.js with the AGV at the end of its path, used to read the final positions of the parts on the AGV.
 * `Excel.xlsx`: conversion of the joint rotations read in VEB.js (0-360 deg) into the values used in the StateCharts (correction of -360 deg above 180 deg, conversion to radians) and computation of the AGV durations from distance and speed.
 
+**Video**
+
+* `video/Complete cycle.mp4`: complete run of the final model, from the initial configuration to the ten parts placed in the box.
+
 **Documentation**
 
-* `Report_extended.docx`: technical report.
+* `Report.pdf`: short technical report (5 pages).
+* `Report_extended.docx`: extended documentation (StateCharts of each element, kinematics procedure, figures).
 * `README.md`: package content and replication instructions.
 * `DFE_09.xlsm`: original assignment spreadsheet not uploaded. The model was developed directly in the JSON scene file.
 
